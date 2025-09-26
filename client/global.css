@@ -1,0 +1,130 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Brand: navy + warm ivory + gold */
+    --background: 36 35% 96%;
+    --foreground: 210 28% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 28% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 28% 14%;
+
+    --primary: 212 42% 20%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 36 30% 92%;
+    --secondary-foreground: 210 28% 20%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 35%;
+
+    --accent: 42 45% 55%;
+    --accent-foreground: 210 28% 18%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 18% 86%;
+    --input: 210 18% 86%;
+    --ring: 212 42% 20%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar palette (unused by default but aligned to brand) */
+    --sidebar-background: 36 35% 96%;
+    --sidebar-foreground: 210 28% 18%;
+    --sidebar-primary: 212 42% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 42 45% 55%;
+    --sidebar-accent-foreground: 210 28% 18%;
+    --sidebar-border: 210 18% 86%;
+    --sidebar-ring: 212 42% 20%;
+  }
+
+  .dark {
+    --background: 216 27% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 216 27% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 216 27% 9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 212 42% 58%;
+    --primary-foreground: 216 27% 7%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 13% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 42 60% 55%;
+    --accent-foreground: 216 27% 7%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 212 42% 58%;
+
+    --sidebar-background: 216 27% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 212 42% 58%;
+    --sidebar-primary-foreground: 216 27% 7%;
+    --sidebar-accent: 42 60% 55%;
+    --sidebar-accent-foreground: 216 27% 7%;
+    --sidebar-border: 220 13% 18%;
+    --sidebar-ring: 212 42% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  /* Reveal on scroll animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px) scale(0.996);
+    transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+
+  .fade-in.is-visible { opacity: 1; }
+}
